@@ -37,8 +37,17 @@ def Simulate(alpha,gamma,N, seed):
                 #The selfish miners found a new block.
                 #Write a piece of code to change the required variables.
                 #You might need to define new variable to keep track of the number of hidden blocks.
-                state=state+1
-                SelfishRevenue=2
+                if len(ChainLength)!=1:
+                    state=state+1
+                elif len(ChainLength)==1:
+                    state=state+1
+                    ChainLength=state
+                    SelfishRevenue=state
+                # prev = len(state) - len(ChainLength)
+                # privateLen = len(state)+1
+                # if(prev=0&privateLen=2):
+                # state=state+1
+                # SelfishRevenue=2
             else:
                 #Write a piece of code to change the required variables.
                 ChainLength=state
@@ -66,8 +75,7 @@ def Simulate(alpha,gamma,N, seed):
 
             else:
                 #The honest miners found a block.
-                SelfishRevenue=2
-                ChainLength=ChainLength+state
+                ChainLength=state
                 state=0
         elif state>2:
             if r<=alpha:
@@ -88,11 +96,11 @@ def Simulate(alpha,gamma,N, seed):
 """
 
 
-# #let's run the code with the follwing parameters!
-# alpha=0.35
-# gamma=0.5
-# Nsimu=10**7
-# seed = 100
-# #This is the theoretical probability computed in the original paper
-# print("Theoretical probability :",(alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha)))
-# print("Simulated probability :",Simulate(alpha,gamma,Nsimu, seed))
+#let's run the code with the follwing parameters!
+alpha=0.35
+gamma=0.5
+Nsimu=10**7
+seed = 100
+#This is the theoretical probability computed in the original paper
+print("Theoretical probability :",(alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha)))
+print("Simulated probability :",Simulate(alpha,gamma,Nsimu, seed))
