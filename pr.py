@@ -69,7 +69,6 @@ def Simulate(alpha,gamma,N, seed):
             #The selfish pool has 2 hidden block.
             if r<=alpha:
                 state=state+1
-                SelfishRevenue=1
 
             else:
                 #The honest miners found a block.
@@ -82,12 +81,14 @@ def Simulate(alpha,gamma,N, seed):
             if r<=alpha:
                 #The selfish miners found a new block
                 state=state+1
-                SelfishRevenue=1
 
             else:
                 #The honest miners found a block
-                ChainLength+=1
-                state=0
+                if(state-ChainLength)>2:
+                    ChainLength+=1
+                else:
+                    ChainLength=(1+ChainLength)+state
+                    SelfishRevenue=state
     return float(SelfishRevenue)/ChainLength
 
 
@@ -97,11 +98,11 @@ def Simulate(alpha,gamma,N, seed):
 """
 
 
-#let's run the code with the follwing parameters!
-alpha=0.35
-gamma=0.5
-Nsimu=10**7
-seed = 100
-#This is the theoretical probability computed in the original paper
-print("Theoretical probability :",(alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha)))
-print("Simulated probability :",Simulate(alpha,gamma,Nsimu, seed))
+# #let's run the code with the follwing parameters!
+# alpha=0.35
+# gamma=0.5
+# Nsimu=10**7
+# seed = 100
+# #This is the theoretical probability computed in the original paper
+# print("Theoretical probability :",(alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha)))
+# print("Simulated probability :",Simulate(alpha,gamma,Nsimu, seed))
