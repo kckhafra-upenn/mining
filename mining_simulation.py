@@ -87,8 +87,8 @@ def Simulate(alpha,gamma,N, seed):
                 if(state-ChainLength)>2:
                     ChainLength+=1
                 else:
-                    ChainLength+=(1+ChainLength)+state
-                    SelfishRevenue=state
+                    ChainLength+=(1+ChainLength)
+                    # SelfishRevenue=state
     return float(SelfishRevenue)/ChainLength
 
 
