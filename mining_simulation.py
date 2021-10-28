@@ -37,7 +37,7 @@ def Simulate(alpha,gamma,N, seed):
                 #The selfish miners found a new block.
                 #Write a piece of code to change the required variables.
                 #You might need to define new variable to keep track of the number of hidden blocks.
-                if lenChainLength!=1:
+                if ChainLength!=1:
                     state=state+1
                 elif ChainLength==1:
                     state=state+1
