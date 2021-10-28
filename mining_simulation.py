@@ -41,7 +41,7 @@ def Simulate(alpha,gamma,N, seed):
                 SelfishRevenue=2
             else:
                 #Write a piece of code to change the required variables.
-                ChainLength=state
+                ChainLength+=2
                 SelfishRevenue=1
                 state=0
         elif state==-1:
