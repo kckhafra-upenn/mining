@@ -51,9 +51,9 @@ def Simulate(alpha,gamma,N, seed):
             else:
                 #others found a block
                 #Write a piece of code to change the required variables.
-                ChainLength=state
-                SelfishRevenue=1
-                state=0
+                ChainLength=ChainLength+1
+                # SelfishRevenue=1
+                # state=0
         elif state==-1:
             #It's the state 0' in the slides (the paper of Eyal and Gun Sirer)
             #There are three situations! 
