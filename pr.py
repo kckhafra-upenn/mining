@@ -39,7 +39,7 @@ def Simulate(alpha,gamma,N, seed):
                 #Write a piece of code to change the required variables.
                 #You might need to define new variable to keep track of the number of hidden blocks.
                 state=2
-                hidden=2
+                hidden=hidden+2
             else:
                 #others found a block
                 #Write a piece of code to change the required variables.
