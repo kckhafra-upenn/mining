@@ -63,6 +63,7 @@ def Simulate(alpha,gamma,N, seed):
             else:
                 #The honest miners found a block.
                 state=state-1
+                SelfishRevenue=2
         elif state>2:
             if r<=alpha:
                 #The selfish miners found a new block
