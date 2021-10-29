@@ -15,9 +15,6 @@ def Simulate(alpha,gamma,N, seed):
     # the revenue of the selfish mining pool
     SelfishRevenue=0
 
-    #hidden block
-    hidden=0
-
     #A round begin when the state=0
     for i in range(N):
         r=random.random()
@@ -41,13 +38,13 @@ def Simulate(alpha,gamma,N, seed):
                 #Write a piece of code to change the required variables.
                 #You might need to define new variable to keep track of the number of hidden blocks.
                 state=2
-                hidden=2
+                
             else:
                 #others found a block
                 #Write a piece of code to change the required variables.
                 ChainLength+=1
                 state=state-1
-                SelfishRevenue=1
+                SelfishRevenue+=1
         elif state==-1:
             #It's the state 0' in the slides (the paper of Eyal and Gun Sirer)
             #There are three situations! 
@@ -68,7 +65,7 @@ def Simulate(alpha,gamma,N, seed):
             else:
                 #The honest miners found a block.
                 state=state-1
-                SelfishRevenue=2
+                SelfishRevenue+=2
                 ChainLength+=1
         elif state>2:
             if r<=alpha:
@@ -88,11 +85,11 @@ def Simulate(alpha,gamma,N, seed):
 """
 
 
-# #let's run the code with the follwing parameters!
-# alpha=0.35
-# gamma=0.5
-# Nsimu=10**7
-# seed = 100
-# #This is the theoretical probability computed in the original paper
-# print("Theoretical probability :",(alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha)))
-# print("Simulated probability :",Simulate(alpha,gamma,Nsimu, seed))
+#let's run the code with the follwing parameters!
+alpha=0.35
+gamma=0.5
+Nsimu=10**7
+seed = 100
+#This is the theoretical probability computed in the original paper
+print("Theoretical probability :",(alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha)))
+print("Simulated probability :",Simulate(alpha,gamma,Nsimu, seed))
