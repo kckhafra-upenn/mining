@@ -44,7 +44,7 @@ def Simulate(alpha,gamma,N, seed):
                 #Write a piece of code to change the required variables.
                 ChainLength+=1
                 state=state-1
-                SelfishRevenue=2
+                SelfishRevenue+=1
        #b pool find a block r is less than alpha. The pooop published branch of 2 and obtain revenue of 2. Hidden block selfist rev +=2. Chain length will also get +=2. What is the state at the end. The state = 0. 
         elif state==-1:
             #It's the state 0' in the slides (the paper of Eyal and Gun Sirer)
