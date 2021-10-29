@@ -58,13 +58,10 @@ def Simulate(alpha,gamma,N, seed):
             #There are three situations! 
             #Write a piece of code to change the required variables in each one.
             if r<=alpha:
-                state=1
-                SelfishRevenue=1
+                state=0
             elif r<=alpha+(1-alpha)*gamma:
-                state=1
-                SelfishRevenue=1
+                state=0
             else:
-                ChainLength+=1
                 state=0
 
         elif state==2:
@@ -81,12 +78,10 @@ def Simulate(alpha,gamma,N, seed):
             if r<=alpha:
                 #The selfish miners found a new block
                 state=state+1
-                SelfishRevenue=1
 
             else:
                 #The honest miners found a block
-                ChainLength+=1
-                state=0
+                state=state-1
     return float(SelfishRevenue)/ChainLength
 
 

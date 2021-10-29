@@ -37,33 +37,24 @@ def Simulate(alpha,gamma,N, seed):
                 #The selfish miners found a new block.
                 #Write a piece of code to change the required variables.
                 #You might need to define new variable to keep track of the number of hidden blocks.
-                if ChainLength!=1:
-                    state=state+1
-                elif ChainLength==1:
-                    state=state+1
-                    ChainLength=state
-                    SelfishRevenue=state
-                # prev = len(state) - len(ChainLength)
-                # privateLen = len(state)+1
-                # if(prev=0&privateLen=2):
-                # state=state+1
-                # SelfishRevenue=2
+                
+               
+                state=2
+                hidden=2
             else:
                 #others found a block
                 #Write a piece of code to change the required variables.
-                ChainLength=state
-                SelfishRevenue=1
-                state=0
+                state=state-1
         elif state==-1:
             #It's the state 0' in the slides (the paper of Eyal and Gun Sirer)
             #There are three situations! 
             #Write a piece of code to change the required variables in each one.
             if r<=alpha:
-                state=1
+                state=0
             elif r<=alpha+(1-alpha)*gamma:
-                state=1
+                state=0
             else:
-                ChainLength+=1
+                state=0
 
         elif state==2:
             #The selfish pool has 2 hidden block.
@@ -84,11 +75,8 @@ def Simulate(alpha,gamma,N, seed):
 
             else:
                 #The honest miners found a block
-                if(state-ChainLength)>2:
-                    ChainLength+=1
-                else:
-                    ChainLength=(1+ChainLength)+state
-                    SelfishRevenue=state
+                state=state-1
+
     return float(SelfishRevenue)/ChainLength
 
 
