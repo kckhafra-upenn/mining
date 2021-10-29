@@ -62,11 +62,7 @@ def Simulate(alpha,gamma,N, seed):
 
             else:
                 #The honest miners found a block.
-                if ChainLength<0:
-                    ChainLength=ChainLength+1
-                elif ChainLength==0:
-                    ChainLength=(1+ChainLength) + state
-                    SelfishRevenue=state
+                state=state-1
         elif state>2:
             if r<=alpha:
                 #The selfish miners found a new block
