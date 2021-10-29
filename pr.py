@@ -80,7 +80,7 @@ def Simulate(alpha,gamma,N, seed):
                 state=hidden-1
                 ChainLength+=1
                 ChainLength+=state
-    return float(SelfishRevenue)/ChainLength
+    return float(SelfishRevenue)/(ChainLength*2)
 
 
 """ 
