@@ -30,7 +30,7 @@ def Simulate(alpha,gamma,N, seed):
                 # and the selfish miners found 0 block.
                 ChainLength+=1
                 state=0
-
+        #a
         elif state==1:
             #The selfish pool has 1 hidden block.
             if r<=alpha:
@@ -38,19 +38,23 @@ def Simulate(alpha,gamma,N, seed):
                 #Write a piece of code to change the required variables.
                 #You might need to define new variable to keep track of the number of hidden blocks.
                 state=2
-                
+            #scenario f. 
             else:
                 #others found a block
                 #Write a piece of code to change the required variables.
                 ChainLength+=1
                 state=state-1
                 SelfishRevenue+=1
+       #b pool find a block r is less than alpha. The pooop published branch of 2 and obtain revenue of 2. Hidden block selfist rev +=2. Chain length will also get +=2. What is the state at the end. The state = 0. 
         elif state==-1:
             #It's the state 0' in the slides (the paper of Eyal and Gun Sirer)
             #There are three situations! 
             #Write a piece of code to change the required variables in each one.
             if r<=alpha:
-                state=0
+                #(scenario b)
+                state = 0
+                SelfishRevenue+=2
+                ChainLength+=2
             elif r<=alpha+(1-alpha)*gamma:
                 state=0
             else:
@@ -78,6 +82,7 @@ def Simulate(alpha,gamma,N, seed):
                 ChainLength+=1
     return float(SelfishRevenue)/ChainLength
 
+#
 
 """ 
   Uncomment out the following lines to try out your code
