@@ -44,7 +44,7 @@ def Simulate(alpha,gamma,N, seed):
                 #others found a block
                 #Write a piece of code to change the required variables.
                 state=state-1
-                SelfishRevenue=2
+                SelfishRevenue=1
         elif state==-1:
             #It's the state 0' in the slides (the paper of Eyal and Gun Sirer)
             #There are three situations! 
